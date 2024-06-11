@@ -22,7 +22,7 @@ import DatadogInternal
 
 /// Bridge protocol that matches `UIApplication` interface for background tasks. Allows easier testablity.
 internal protocol UIKitAppBackgroundTaskCoordinator {
-    func beginBackgroundTask(expirationHandler handler: (() -> Void)?) -> UIBackgroundTaskIdentifier
+    nonisolated func beginBackgroundTask(expirationHandler handler: (@Sendable () -> Void)?) -> UIBackgroundTaskIdentifier
     func endBackgroundTask(_ identifier: UIBackgroundTaskIdentifier)
 }
 
